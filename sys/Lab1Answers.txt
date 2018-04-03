@@ -1,0 +1,28 @@
+Exponential Scheduler
+Advantages -
+1. The process is scheduled by based on the random number. Hence we can say that this scheduler is fair. Every process has some chance of getting scheduled which is better than the default scheduler where the process with max priority is always scheduled.
+
+Disadvantages -
+1. Process wth higher priorities starve for CPU time.
+2. Anyone can game the scheduler by setting priority as least.
+
+
+Linux Scheduler
+Advanages -
+1. All process get some portion of the CPU time in each epoch based on its priority. So they don't have to starve untill all processes with higher priority complete their execution.
+2. The scheduling policy acts good for the process with higher priority too as they get large quantums in each epoch and get the highest chance to be scheduled.
+
+Disadvantages - 
+The performance of this scheduler is not efficient as the time taken by the scheduler to implement the scheduling policy is significant which could have been easily used for running the processes. The initialization of quantum values of each process at each epoch and finding the quantum with maximum goodness value consumes a lot of time.
+
+Default Scheduler 
+Advantages - 
+1. Process with highest priority gets the CPU first.
+2. The scheduler performs good as there a less context switches and the scheduling policy takes very minimal share of the CPU time.
+
+Disadvantages - 
+1. Starvation of processes with lower priority. 
+2. This scheduler performs bad for interactive jobs because of their bad response time.
+
+
+2. The NULL process has priority 0. Exponential scheduler never picks this NULL process until it has some other job in the PRREADY state/queue as expdev() returns positive integers. Similarly, the Linux scheduler also schedules NULL process only when no other process is in PRREADY state/queue.
